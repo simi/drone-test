@@ -1,0 +1,13 @@
+kind: pipeline
+type: docker
+name: default
+
+clone:
+  disable: true
+
+steps:
+- name: clone
+  image: alpine/git
+  commands:
+  - git clone https://github.com/simi/drone-test.git .
+  - git checkout $DRONE_COMMIT
